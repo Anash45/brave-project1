@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+    --font-open: "Open Sans", Arial, Helvetica, sans-serif;
+    --font-roboto: "Roboto", Arial, Helvetica, sans-serif;
+    --font-rubik: "Rubik", Arial, Helvetica, sans-serif;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
+    --breakpoint-3xl: 1920px; /* Optional */
+
+    /* Bootstrap-style container max-widths */
+    --container-sm: 540px;
+    --container-md: 720px;
+    --container-lg: 960px;
+    --container-xl: 1140px;
+    --container-2xl: 1320px;
+
+    --color-primary: #003478;
+    --color-text: #5a5a5a;
+    --color-secondary: #193656;
+    --color-color2: #7f99bb;
+}
+html,body{
+    scroll-behavior: smooth !important;
+}
+/* Custom container class like Bootstrap */
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: theme(--breakpoint-sm)) {
+    .container {
+        max-width: theme(--container-sm);
+    }
+}
+
+@media (min-width: theme(--breakpoint-md)) {
+    .container {
+        max-width: theme(--container-md);
+    }
+}
+
+@media (min-width: theme(--breakpoint-lg)) {
+    .container {
+        max-width: theme(--container-lg);
+    }
+}
+
+@media (min-width: theme(--breakpoint-xl)) {
+    .container {
+        max-width: theme(--container-xl);
+    }
+}
+
+@media (min-width: theme(--breakpoint-2xl)) {
+    .container {
+        max-width: theme(--container-2xl);
+    }
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    height: 3px;
+    width: 0;
+    background-color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 40px);
+}
+
+/* Optional: set z-index and slide-down transition */
+.header-logo {
+    display: none;
+}
+
+.fixed-header .header-logo {
+    display: block;
+}
+
+.hero-sec{
+    background: linear-gradient(to right, var(--color-primary), transparent), url(../../public/images/landing-hero-bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.feature-card{
+    box-shadow: 0px 35px 50px 0px rgba(0, 0, 0, 0.07);
+}
+
+.feature-card:hover{
+    box-shadow: none;
+}
+
+@media (max-width: 992px) {
+    .header-logo {
+        display: block;
+    }
+
+    .mobile-nav{
+        width: 0px;
+        overflow-x: hidden;
+        transition: 0.3s ease-in-out;
+        transition-delay: 0.2s;
+    }
+
+
+    .mobile-nav::after{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: rgba(0, 52, 120, 0.4);
+        z-index: -1;
+        transition: 0.3s ease-in-out;
+    }
+    
+    .mobile-nav.opened{
+        width: 300px !important;
+    }
+    
+    .mobile-nav.opened::after{
+        width: 100% !important;
+    }
+}

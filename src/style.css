@@ -3,143 +3,203 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 @theme {
-    --font-open: "Open Sans", Arial, Helvetica, sans-serif;
-    --font-roboto: "Roboto", Arial, Helvetica, sans-serif;
-    --font-rubik: "Rubik", Arial, Helvetica, sans-serif;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-2xl: 1400px;
-    --breakpoint-3xl: 1920px; /* Optional */
+  --font-open: "Open Sans", Arial, Helvetica, sans-serif;
+  --font-roboto: "Roboto", Arial, Helvetica, sans-serif;
+  --font-rubik: "Rubik", Arial, Helvetica, sans-serif;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  --breakpoint-3xl: 1920px; /* Optional */
 
-    /* Bootstrap-style container max-widths */
-    --container-sm: 540px;
-    --container-md: 720px;
-    --container-lg: 960px;
-    --container-xl: 1140px;
-    --container-2xl: 1320px;
+  /* Bootstrap-style container max-widths */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-2xl: 1320px;
 
-    --color-primary: #003478;
-    --color-text: #5a5a5a;
-    --color-secondary: #193656;
-    --color-color2: #7f99bb;
+  --color-primary: #003478;
+  --color-text: #5a5a5a;
+  --color-secondary: #193656;
+  --color-color2: #7f99bb;
 }
-html,body{
-    scroll-behavior: smooth !important;
+html,
+body {
+  scroll-behavior: smooth !important;
 }
 /* Custom container class like Bootstrap */
 .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: theme(--breakpoint-sm)) {
-    .container {
-        max-width: theme(--container-sm);
-    }
+  .container {
+    max-width: theme(--container-sm);
+  }
 }
 
 @media (min-width: theme(--breakpoint-md)) {
-    .container {
-        max-width: theme(--container-md);
-    }
+  .container {
+    max-width: theme(--container-md);
+  }
 }
 
 @media (min-width: theme(--breakpoint-lg)) {
-    .container {
-        max-width: theme(--container-lg);
-    }
+  .container {
+    max-width: theme(--container-lg);
+  }
 }
 
 @media (min-width: theme(--breakpoint-xl)) {
-    .container {
-        max-width: theme(--container-xl);
-    }
+  .container {
+    max-width: theme(--container-xl);
+  }
 }
 
 @media (min-width: theme(--breakpoint-2xl)) {
-    .container {
-        max-width: theme(--container-2xl);
-    }
+  .container {
+    max-width: theme(--container-2xl);
+  }
 }
 
 .nav-link {
-    position: relative;
+  position: relative;
 }
 
 .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    height: 3px;
-    width: 0;
-    background-color: #ffffff;
-    transition: 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  height: 3px;
+  width: 0;
+  background-color: #ffffff;
+  transition: 0.3s ease-in-out;
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
-    width: calc(100% - 40px);
+  width: calc(100% - 40px);
 }
 
 /* Optional: set z-index and slide-down transition */
 .header-logo {
-    display: none;
+  display: none;
 }
 
 .fixed-header .header-logo {
-    display: block;
+  display: block;
 }
 
-.hero-sec{
-    background: linear-gradient(to right, var(--color-primary), transparent), url(../../public/images/landing-hero-bg.jpg);
-    background-position: center;
+.hero-sec {
+  background: linear-gradient(to right, var(--color-primary), transparent),
+    url(../../public/images/landing-hero-bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.feature-card {
+  box-shadow: 0px 35px 50px 0px rgba(0, 0, 0, 0.07);
+}
+
+.feature-card:hover {
+  box-shadow: none;
+}
+.slick-slide {
+  transition: opacity 0.3s ease-in-out;
+}
+.slick-slide:not(.slick-active) {
+  opacity: 0.5;
+}
+
+.slick-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.slick-dots button {
+  position: relative;
+  visibility: hidden;
+}
+
+.slick-dots li {
+  position: relative;
+}
+.slick-dots li::after {
+  cursor: pointer;
+  content: "";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: var(--color-primary);
+  border-radius: 100px;
+}
+
+.slick-dots li.slick-active::after {
+  outline: 1px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.max-h-active {
+  max-height: 500px;
+}
+
+.accordion-item{
+    opacity: 1;
+}
+
+.accordion-item:not(.active){
+    transition: 0.5s ease-in-out;
+    opacity: 0.6;
+}
+
+.active .fa-chevron-down{
+    transform: rotate(180deg);
+}
+
+.faqs-card{
+    background-image: linear-gradient(90deg, rgba(0, 52, 120, 0.85) 0%, rgba(127, 153, 187, 0.85) 100%), url(/public/images/bg-image-faqs.jpg);
     background-size: cover;
+    background-position: center;
 }
-
-.feature-card{
-    box-shadow: 0px 35px 50px 0px rgba(0, 0, 0, 0.07);
-}
-
-.feature-card:hover{
-    box-shadow: none;
-}
-
 @media (max-width: 992px) {
-    .header-logo {
-        display: block;
-    }
+  .header-logo {
+    display: block;
+  }
 
-    .mobile-nav{
-        width: 0px;
-        overflow-x: hidden;
-        transition: 0.3s ease-in-out;
-        transition-delay: 0.2s;
-    }
+  .mobile-nav {
+    width: 0px;
+    overflow-x: hidden;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.2s;
+  }
 
+  .mobile-nav::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(0, 52, 120, 0.4);
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+  }
 
-    .mobile-nav::after{
-        content: "";
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background-color: rgba(0, 52, 120, 0.4);
-        z-index: -1;
-        transition: 0.3s ease-in-out;
-    }
-    
-    .mobile-nav.opened{
-        width: 300px !important;
-    }
-    
-    .mobile-nav.opened::after{
-        width: 100% !important;
-    }
+  .mobile-nav.opened {
+    width: 300px !important;
+  }
+
+  .mobile-nav.opened::after {
+    width: 100% !important;
+  }
 }
